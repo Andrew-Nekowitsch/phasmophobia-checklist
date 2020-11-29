@@ -1,30 +1,31 @@
-import React from "react";
+import React, { Component } from 'react';
 import FaIcon from "./Icon";
 import IconButton from "@material-ui/core/IconButton";
+import { connect } from 'react-redux';
+import { POSITIVE, NEGATIVE } from "../redux/actions";
 
-export default function Controls() {
-  const [state, setState] = React.useState({
-    found: false,
-    notfound: false,
-  });
+class Controller extends Component {
 
-  const handleCheckmark = () => {
-    setState({ ...state, notfound: false });
-    setState({ ...state, found: true });
-};
-  const handleXmark = () => {
-      setState({ ...state, found: false });
-      setState({ ...state, notfound: true });
+  handleCheckmark = () => {
+    this.props.dispatch({ type: POSITIVE, clue: this.props.column });
   };
 
-  return (
-    <div>
-      <IconButton onClick={() => handleCheckmark()} style={{padding: '0px'}}>
-        <FaIcon name="fas fa-check" />
-      </IconButton>
-      <IconButton onClick={() => handleXmark()}>
-        <FaIcon name="fas fa-times" />
-      </IconButton>
-    </div>
-  );
+  handleXmark = () => {
+    this.props.dispatch({ type: NEGATIVE, clue: this.props.column });
+  };
+
+  render() {
+    return (
+      <div>
+        <IconButton onClick={this.handleCheckmark} style={{ padding: "0px" }}>
+          <FaIcon name="fas fa-check" />
+        </IconButton>
+        <IconButton onClick={this.handleXmark} style={{ padding: "0px" }}>
+          <FaIcon name="fas fa-times" />
+        </IconButton>
+      </div>
+    );
+  }
 }
+
+export default connect()(Controller);
