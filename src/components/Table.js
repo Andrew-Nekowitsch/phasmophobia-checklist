@@ -6,7 +6,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import Checkmark from './Icon'
 import GhostTableHead from './GhostTableHead'
 import { connect } from 'react-redux';
@@ -22,6 +21,8 @@ class GhostTable extends Component {
   darkStyle = {
     backgroundColor: '#303030'
   }
+  lightStyle = {
+  }
 
   classes = this.useStyles();
 
@@ -32,7 +33,7 @@ class GhostTable extends Component {
             <GhostTableHead />
             <TableBody>
               {this.props.rows.map((row) => (
-                <TableRow key={row.name} style={row.active === true ? "" : this.darkStyle}>
+                <TableRow key={row.id} style={row.active === true ? this.lightStyle : this.darkStyle}>
                   <TableCell component="th" scope="row">{row.name}</TableCell>
                   <TableCell align="center">{row.emf === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
                   <TableCell align="center">{row.orb === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
