@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import TableHead from '@material-ui/core/TableHead';
 import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
+import TableRow from "@material-ui/core/TableRow";
+import Button from "@material-ui/core/Button";
 import Controller from './Controller'
+import { connect } from 'react-redux';
+import { RESET } from "../redux/actions";
 
 class GhostTableHead extends Component {
+
+    handleReset = () => {
+        this.props.dispatch({ type: RESET, clue: this.props.column });
+      };
+
     render() {
         return (
             <TableHead>
@@ -18,7 +26,7 @@ class GhostTableHead extends Component {
                     <TableCell align="center">Fingerprints</TableCell>
                 </TableRow>
                 <TableRow style={{ padding: '0px' }}>
-                    <TableCell></TableCell>
+                    <TableCell align="right"><Button onClick={this.handleReset}><strong>Reset</strong></Button></TableCell>
                     <TableCell align="center"><Controller column={0} /></TableCell>
                     <TableCell align="center"><Controller column={1} /></TableCell>
                     <TableCell align="center"><Controller column={2} /></TableCell>
@@ -31,5 +39,5 @@ class GhostTableHead extends Component {
     }
 }
 
-export default GhostTableHead;
+export default connect()(GhostTableHead);
 

@@ -34,14 +34,14 @@ class GhostTable extends Component {
             <TableBody>
               {this.props.rows.map((row) => (
                 <TableRow key={row.id} style={row.active === true && row.count === this.props.clueCount ? this.lightStyle : this.darkStyle}>
-                  <TableCell component="th" scope="row">{row.name}</TableCell>
-                  <TableCell align="center">{row.emf === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
-                  <TableCell align="center">{row.orb === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
-                  <TableCell align="center">{row.writing === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
-                  <TableCell align="center">{row.temps === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
-                  <TableCell align="center">{row.box === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
-                  <TableCell align="center">{row.finger === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
-                </TableRow>
+                    <TableCell component="th" scope="row">{row.name}</TableCell>
+                    <TableCell align="center">{row.emf ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
+                    <TableCell align="center">{row.orb ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
+                    <TableCell align="center">{row.writing ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
+                    <TableCell align="center">{row.temps ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
+                    <TableCell align="center">{row.box ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
+                    <TableCell align="center">{row.finger ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
+                  </TableRow>
               ))}
             </TableBody>
           </Table>

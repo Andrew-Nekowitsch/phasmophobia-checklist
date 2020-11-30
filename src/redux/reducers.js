@@ -1,4 +1,4 @@
-import { POSITIVE, NEGATIVE } from "./actions";
+import { RESET, POSITIVE, NEGATIVE } from "./actions";
 const STATE = [0, 1, 2];
 const COLUMNS = ["emf", "orb", "writing", "temps", "box", "finger"];
 const INITIALSTATE = {
@@ -152,7 +152,7 @@ const INITIALSTATE = {
   ],
 };
 
-function clueCounter(clueList, clueCount, table_ghostData) {
+function clueCounter(clueList, table_ghostData) {
   for (let row_ghostData of table_ghostData) {
     let counter = 0;
     row_ghostData.active = true;
@@ -171,10 +171,39 @@ function clueCounter(clueList, clueCount, table_ghostData) {
   return table_ghostData;
 }
 
+function ghostSort(firstRow, secondRow) {
+  const firstThenSecond = -1,
+    secondThenFirst = 1,
+    sameOrder = 0;
+  if (firstRow.active === secondRow.active) {
+    return (
+      (firstRow.count > secondRow.count && firstThenSecond) ||
+      (firstRow.count < secondRow.count && secondThenFirst) ||
+      (firstRow.count === secondRow.count &&
+        (firstRow.id < secondRow.id ? firstThenSecond : secondThenFirst))
+    );
+  }
+
+  if (firstRow.active !== secondRow.active) {
+    return (!firstRow.active && secondThenFirst) || firstThenSecond;
+  }
+  return sameOrder;
+}
+
 function reducer(state = INITIALSTATE, action) {
   var countModifier = 0;
 
   switch (action.type) {
+    case RESET:
+      for (var row of state.ghostData) {
+        row.count = 0;
+        row.active = true;
+      }
+      return {
+        clueList: [0, 0, 0, 0, 0, 0],
+        clueCount: 0,
+        ghostData: INITIALSTATE.ghostData.sort(ghostSort)
+      };
     case POSITIVE:
       // 👌 or ✖ -> ✔
       if (state.clueList[action.clue] !== STATE[1]) {
@@ -215,35 +244,8 @@ function reducer(state = INITIALSTATE, action) {
     ghostData: [
       ...clueCounter(
         state.clueList,
-        state.clueCount + countModifier,
         state.ghostData
-      ).sort(function (firstRow, secondRow) {
-        const firstThenSecond = -1,
-          secondThenFirst = 1,
-          sameOrder = 0;
-        if (!firstRow.active && !secondRow.active) {
-          return (
-            (firstRow.count > secondRow.count && firstThenSecond) ||
-            (firstRow.count < secondRow.count && secondThenFirst) ||
-            (firstRow.count === secondRow.count &&
-              (firstRow.id < secondRow.id ? firstThenSecond : secondThenFirst))
-          );
-        }
-
-        if (firstRow.active && secondRow.active) {
-          return (
-            (firstRow.count > secondRow.count && firstThenSecond) ||
-            (firstRow.count < secondRow.count && secondThenFirst) ||
-            (firstRow.count === secondRow.count &&
-              (firstRow.id < secondRow.id ? firstThenSecond : secondThenFirst))
-          );
-        }
-
-        if (firstRow.active !== secondRow.active) {
-          return (!firstRow.active && secondThenFirst) || firstThenSecond;
-        }
-        return sameOrder;
-      }),
+      ).sort(ghostSort),
     ],
   };
 }
