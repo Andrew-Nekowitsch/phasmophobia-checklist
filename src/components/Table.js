@@ -33,7 +33,7 @@ class GhostTable extends Component {
             <GhostTableHead />
             <TableBody>
               {this.props.rows.map((row) => (
-                <TableRow key={row.id} style={row.active === true ? this.lightStyle : this.darkStyle}>
+                <TableRow key={row.id} style={row.active === true && row.count === this.props.clueCount ? this.lightStyle : this.darkStyle}>
                   <TableCell component="th" scope="row">{row.name}</TableCell>
                   <TableCell align="center">{row.emf === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
                   <TableCell align="center">{row.orb === true ? <Checkmark name="fas fa-check" /> : ""}</TableCell>
@@ -52,7 +52,8 @@ class GhostTable extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    rows: state.ghostData
+    rows: state.ghostData,
+    clueCount: state.clueCount
   };
 }
 
