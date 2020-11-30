@@ -45,7 +45,7 @@ function reducer(state = INITIALSTATE, action) {
 
   switch (action.type) {
     case POSITIVE:
-
+      
       // 👌 or ✖ -> ✔
       if (state.clueList[action.clue] !== STATE[1]) { 
 
