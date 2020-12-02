@@ -9,7 +9,6 @@ import Paper from '@material-ui/core/Paper';
 import Checkmark from './Icon'
 import GhostTableHead from './GhostTableHead'
 import { connect } from 'react-redux';
-import Divider from '@material-ui/core/Divider';
 
 class GhostTable extends Component {
 
@@ -48,8 +47,6 @@ class GhostTable extends Component {
           <Table className={this.classes.table} aria-label="simple table">
             <GhostTableHead/>
             <TableBody>
-          <Divider />
-          <Divider />
               {this.props.rows.map((row) => (
                 <TableRow key={row.id} style={this.rowStyler(row)}>
                   <TableCell style={this.rowStyler(row)} component="th" scope="row">{row.name}</TableCell>
