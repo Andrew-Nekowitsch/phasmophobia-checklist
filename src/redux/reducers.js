@@ -239,7 +239,7 @@ function reducer(state = INITIALSTATE, action) {
       break;
   }
   return {
-    clueList: state.clueList,
+    clueList: [...state.clueList],
     clueCount: state.clueCount + countModifier,
     ghostData: [
       ...clueCounter(
