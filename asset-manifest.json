@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/phasmophobia-checklist/static/css/main.553a48c3.chunk.css",
-    "main.js": "/phasmophobia-checklist/static/js/main.0ffffd68.chunk.js",
-    "main.js.map": "/phasmophobia-checklist/static/js/main.0ffffd68.chunk.js.map",
-    "runtime-main.js": "/phasmophobia-checklist/static/js/runtime-main.fe441d63.js",
-    "runtime-main.js.map": "/phasmophobia-checklist/static/js/runtime-main.fe441d63.js.map",
-    "static/js/2.f85a8b46.chunk.js": "/phasmophobia-checklist/static/js/2.f85a8b46.chunk.js",
-    "static/js/2.f85a8b46.chunk.js.map": "/phasmophobia-checklist/static/js/2.f85a8b46.chunk.js.map",
-    "static/js/3.be7c79cc.chunk.js": "/phasmophobia-checklist/static/js/3.be7c79cc.chunk.js",
-    "static/js/3.be7c79cc.chunk.js.map": "/phasmophobia-checklist/static/js/3.be7c79cc.chunk.js.map",
+    "main.js": "/phasmophobia-checklist/static/js/main.2aebb427.chunk.js",
+    "main.js.map": "/phasmophobia-checklist/static/js/main.2aebb427.chunk.js.map",
+    "runtime-main.js": "/phasmophobia-checklist/static/js/runtime-main.b5093182.js",
+    "runtime-main.js.map": "/phasmophobia-checklist/static/js/runtime-main.b5093182.js.map",
+    "static/js/2.7453fc82.chunk.js": "/phasmophobia-checklist/static/js/2.7453fc82.chunk.js",
+    "static/js/2.7453fc82.chunk.js.map": "/phasmophobia-checklist/static/js/2.7453fc82.chunk.js.map",
+    "static/js/3.7a4bbeb1.chunk.js": "/phasmophobia-checklist/static/js/3.7a4bbeb1.chunk.js",
+    "static/js/3.7a4bbeb1.chunk.js.map": "/phasmophobia-checklist/static/js/3.7a4bbeb1.chunk.js.map",
     "index.html": "/phasmophobia-checklist/index.html",
     "static/css/main.553a48c3.chunk.css.map": "/phasmophobia-checklist/static/css/main.553a48c3.chunk.css.map",
-    "static/js/2.f85a8b46.chunk.js.LICENSE.txt": "/phasmophobia-checklist/static/js/2.f85a8b46.chunk.js.LICENSE.txt"
+    "static/js/2.7453fc82.chunk.js.LICENSE.txt": "/phasmophobia-checklist/static/js/2.7453fc82.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.fe441d63.js",
-    "static/js/2.f85a8b46.chunk.js",
+    "static/js/runtime-main.b5093182.js",
+    "static/js/2.7453fc82.chunk.js",
     "static/css/main.553a48c3.chunk.css",
-    "static/js/main.0ffffd68.chunk.js"
+    "static/js/main.2aebb427.chunk.js"
   ]
 }
